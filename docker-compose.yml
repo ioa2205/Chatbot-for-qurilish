@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: org-chat-backend
+    restart: unless-stopped
+    env_file:
+      - ./backend/.env
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./backend/audit.log:/app/audit.log
+    networks:
+      - chat-net
+
+  mock_vector_db:
+    container_name: mock-vector-db
+    # Use a simple node image to run the mock server script
+    image: node:18-alpine
+    restart: unless-stopped
+    command: node /app/mock_vector_db.js
+    volumes:
+      - ./scripts/mock_vector_db.js:/app/mock_vector_db.js
+    ports:
+      - "8000:8000"
+    networks:
+      - chat-net
+
+networks:
+  chat-net:
+    driver: bridge
