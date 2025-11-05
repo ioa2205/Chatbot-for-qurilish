@@ -3,29 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Chatbot Test Page</title>
-    <!-- In a real app, this CSS would be hosted on a CDN -->
+    <!-- Use a relative path to your local CSS file -->
     <link rel="stylesheet" href="./frontend/widget.css">
     <style>
-        body { display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f0f0; }
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #f0f0f0; }
     </style>
 </head>
 <body>
 
 <div id="chatbot-container" style="width: 400px; height: 500px;"></div>
 
-<!-- In a real app, this JS would be hosted on a CDN -->
+<!-- Use a relative path to your local JS file -->
 <script src="./frontend/widget.js"></script>
 <script>
-    // --- THIS IS A FAKE JWT FOR LOCAL TESTING ONLY ---
-    // In your real website, the server would generate this securely.
-    const FAKE_JWT = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJsb2NhbC10ZXN0LXVzZXIiLCJpc3MiOiJ5b3VyLW9yZ2FuaXphdGlvbi1pc3N1ZXItbmFtZSIsImlhdCI6MTUxNjIzOTAyMn0.BdaAylR5nC0n1DG_m-2RGP3j_m_2z4p08M2F1gA8-4A";
+    // --- THIS IS THE GUARANTEED CORRECT JWT FOR TESTING ---
+    // It is signed with the secret "your-very-strong-jwt-secret-key"
+    // and has the issuer "your-organization-issuer-name".
+    const FAKE_JWT = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJsb2NhbC10ZXN0LXVzZXIiLCJpc3MiOiJ5b3VyLW9yZ2FuaXphdGlvbi1pc3N1ZXItbmFtZSIsImlhdCI6MTc2MjIzNzU4NX0._RoHmEjxldyRYhvY-wPIqXfYPbjDs29PLPshqb620fc";
 
-    window.OrgChat.init({
+     window.OrgChat.init({
         // The local URL of your backend running in Docker
         apiUrl: "http://localhost:3001/api",
 
         // For local testing, we just return the fake JWT.
-        // In a real app, this would fetch the token from your server.
         getJwtCallback: async () => {
             console.log("Providing fake JWT for testing.");
             return FAKE_JWT;

@@ -37,7 +37,7 @@ export interface ChatResponse {
   answer: string;
   provenance: Provenance[];
   confidence: 'High' | 'Medium' | 'Low';
-  verification_status: 'OK' | 'REJECTED' | 'NO_EVIDENCE';
+  verification_status: string;
   used_passages: string[];
   debug?: {
     retriever_results?: Passage[];

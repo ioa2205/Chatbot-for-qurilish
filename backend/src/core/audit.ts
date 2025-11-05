@@ -1,3 +1,5 @@
+// backend/src/core/audit.ts
+
 import fs from 'fs/promises';
 import path from 'path';
 
@@ -11,11 +13,12 @@ interface AuditEvent {
   [key: string]: any;
 }
 
+// FIX: Corrected the type of the 'event' parameter
 export async function logAuditEvent(event: Omit<AuditEvent, 'timestamp'>): Promise<void> {
-  const logEntry: AuditEvent = {
+  const logEntry = {
     timestamp: new Date().toISOString(),
     ...event,
-  };
+  } as AuditEvent;
 
   try {
     // For production, use a structured logger (e.g., Winston, Pino) and write to a proper log management system.

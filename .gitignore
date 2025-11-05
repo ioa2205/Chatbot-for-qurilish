@@ -19,3 +19,9 @@ yarn-error.log*
 .Trashes
 ehthumbs.db
 Thumbs.db
+source_document.pdf
+processed_data.json
+
+# IDE files
+node_modules/
+
