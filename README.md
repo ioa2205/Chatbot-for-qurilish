@@ -1,11 +1,8 @@
-# "Expert Assistant" RAG Chatbot
+# Internal RAG Assistant
 
 This repository contains a complete, production-ready web application for a secure, organization-only chatbot. It uses a sophisticated **Retrieval-Augmented Generation (RAG)** architecture to answer user questions based *only* on a provided set of documents.
 
 The system is designed to be intelligent, trustworthy, and easy to integrate into any existing website.
-
-[![Chatbot Demo](./demo.gif)](./demo.gif)
-*(Recommendation: Create a simple animated GIF of the chatbot working and save it as `demo.gif` in your project root. It makes the README look incredibly professional.)*
 
 ---
 
